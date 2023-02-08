@@ -1,0 +1,16 @@
+[
+ {
+  "id": 1,
+  "name": "Ramiro",
+  "surname": "Villa",
+  "email": "rv@rv.com",
+  "password": "$2a$10$Z1/GFW.P1TEeyyxbW/nucOhm4KaOTuydOcLlEmiezuV6GTWbmPvkW"
+ },
+ {
+  "id": 2,
+  "name": "Pablo",
+  "surname": "Mansilla",
+  "email": "pm@pm.com",
+  "password": "$2a$10$I0GlhnqYZNSdhN6lcR.yce3yMRAP1xIEZAJDFv8/TZsShBSy0G.CW"
+ }
+]
