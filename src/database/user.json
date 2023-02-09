@@ -12,5 +12,12 @@
   "surname": "Mansilla",
   "email": "pm@pm.com",
   "password": "$2a$10$I0GlhnqYZNSdhN6lcR.yce3yMRAP1xIEZAJDFv8/TZsShBSy0G.CW"
+ },
+ {
+  "id": 3,
+  "name": "Chel",
+  "surname": "fjfjfjfjfjfjfjf",
+  "email": "mail@mail.com",
+  "password": "$2a$10$nx8ZDLUkm2xrEtkR5OKrle4OxS.eFNrRTDVlDWGvvA4ICM2n.uwru"
  }
 ]

@@ -1,6 +1,7 @@
 const {validationResult} = require('express-validator');
 
-
+const modelUser = require('../model/User');
+const bcrypt = require('bcryptjs');
 
 const userControlers = {
     login: (_req,res)=>{res.render('login')},
@@ -15,7 +16,17 @@ const userControlers = {
 
         const errors = validationResult(req);
         if(errors.isEmpty()){
-            res.send(req.body);
+            const userLogin = modelUser.findByField('email',email);
+            if(userLogin){
+                const passwd = bcrypt.compareSync(password,userLogin.password);
+                if(passwd){
+                    req.session.userLogged = userLogin;
+                    return res.send('Bienvenido ' + userLogin.email);
+                }else{
+                    return res.send('Contraseña incorrecta');
+                }
+            }
+            res.send('Error! no se encuentra el email')
         }else{
             res.render('login',{
                 'errors':errors.array(),
@@ -36,8 +47,17 @@ const userControlers = {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
-            res.send(req.body);
-    
+            const userExist = modelUser.findByField('email',email)
+            if(userExist){
+                res.send('El usuario ya se encuentra registrado');
+            }else{
+                const obj = {
+                    ...req.body,
+                    password: bcrypt.hashSync(password, 10)
+                }
+                modelUser.create(obj);
+                res.send('Good Job!');
+            }
         }else{
             res.render('register',{
                 'errors':errors.array(),
